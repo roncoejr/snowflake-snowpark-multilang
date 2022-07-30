@@ -1,6 +1,8 @@
 from snowflake.snowpark import Session
 from snowflake.snowpark.functions import call_udf
 from snowflake.snowpark.functions import col
+from snowflake.snowpark.functions import udf
+from snowflake.snowpark.types import StringType
 import os
 
 connection_params = {
@@ -12,6 +14,15 @@ connection_params = {
     "database": "CITIBIKE",
     "schema": "DEMO"
 }
+
+
+halfDurationUDF = udf(lambda x: x / 2, return_type = StringType(), input_types = [StringType()])
+
+halfDurationUDF = udf(lambda x: x / 2, return_type = StringType(), input_types = [StringType()], name = "halfDuration", replace = True)
+
+@udf(name = "halfDuration", is_permanent = True, stage_location = "@~", replace = True)
+
+
 
 new_session = Session.builder.configs(connection_params).create()
 df_trips = new_session.sql("select TRIPID, STARTTIME, ENDTIME, DURATION FROM TRIPS_VW")
