@@ -20,8 +20,9 @@ halfDurationUDF = udf(lambda x: x / 2, return_type = StringType(), input_types =
 
 halfDurationUDF = udf(lambda x: x / 2, return_type = StringType(), input_types = [StringType()], name = "halfDuration", replace = True)
 
-@udf(name = "halfDuration", is_permanent = True, stage_location = "@~", replace = True)
+@udf(name = "cutInHalf", is_permanent = True, stage_location = "@~", replace = True)
 
+@udf(name = "rateDistance", is_permanent = True, stage_location = "@~", replace = True)
 
 
 new_session = Session.builder.configs(connection_params).create()

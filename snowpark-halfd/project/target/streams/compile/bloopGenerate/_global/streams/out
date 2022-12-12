@@ -1,0 +1,4 @@
+[debug] [snowpark-halfd-build] Classpath dependencies List()
+[debug] [snowpark-halfd-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'snowpark-halfd-build' to '/Users/ron/Documents/_Dev/snowflake-snowpark-multilang/snowpark-halfd/project/.bloop/snowpark-halfd-build.json'
+[success] Generated .bloop/snowpark-halfd-build.json
